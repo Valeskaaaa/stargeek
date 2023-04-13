@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(imagens/image\ 10filmes\ \(1\).jpg);
+}
+
+.container{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+main{
+
+background: #FFFFFF;
+box-shadow: 12px 12px 12px #000000;
+border-radius: 40px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 80%;
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-right: 30px;
+    margin-top: 20px;
+
+}
+
+.home{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 100%;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    row-gap:32px ;
+   
+    width: 90%;
+}
+
+form> div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+
+}
+.btn-submit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+form > div > input{
+    height: 65px;
+    background: #000000;
+    border-radius: 10px;
+    color: #FFFFFF;
+}
+
+input[type="submit"]{
+    background-color:black ;
+    border-radius: 10px;
+    width: 90%;
+    height: 65px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+
+}
+
+form > div > label{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.2rem;
+    line-height: 41px;
+    color: #000000;
+
+}
+
+form > input{
+    background-color: #000000;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+input[type=name]{
+    font-size: x-large;
+}
+
+input[type="file"] {
+    background-color: #000000;
+    font-size: 1.5rem;
+}
+
+
+
+
+form > div > textarea{
+    font-size: x-large;
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+@media screen and (max-width:490px) {
+
+    main{
+       
+    }
+
+    .logo > img{
+        width: 150px;
+    }
+
+}
+

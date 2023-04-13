@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+}
+
+a{
+    text-decoration: none;
+}
+.container {
+    display: grid;
+    grid-template-columns:50vw 1fr;
+    grid-template-rows:100vw;
+    grid-template-areas: 
+    "i c";
+}
+
+
+aside{
+    grid-area:i;
+    background-image: url(imagens/image\ 1crianças.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+}
+
+main{
+    grid-area:c;
+    background-color:rgb(0, 0, 0);
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+}
+
+
+
+main > .logo > h1 {
+    color: white;
+    font-size:1.0rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.logo {
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+
+    
+}
+
+.info{
+    padding-bottom: 00px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+main > .info a {
+    justify-content: center;
+}
+
+main > .info > p {
+    color: white;
+    font-size:1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+} 
+
+.btn-1{
+    background-color:dodgerblue;
+    padding: 10px 50px;
+    margin-left: 16px;
+    font-weight:600 ;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.5rem;
+}
+.btn-2{
+    background-color:white;
+    padding: 5px 40px;
+    margin-left: 16px;
+    font-weight:600 ;
+    border-radius: 5px;
+    color: black;
+    font-size: 1.5rem;
+    
+}
+
+@media screen and (max-width:800px) {
+    .container {
+        display: grid;
+        grid-template-columns:1fr;
+        grid-template-rows:200px auto;
+        grid-template-areas: 
+        "i"
+        "c";
+    }
+}
