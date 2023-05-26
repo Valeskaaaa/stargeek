@@ -1,8 +1,20 @@
 const nome = document.getElementById("nome");
 const descricao = document.getElementById("descricao");
 const botaocadastrar = document.getElementById("btncadastrar");
+const foto = document.getElementById("foto")
+
+var url = new URL(window.location.href);
+var peditar = url.searchParams.get("peditar");
+var pindice = url.searchParams.get("indice");
+
+
+if (peditar == "true"){
+    editar(pindice);
+  }
+  
 
 botaocadastrar.onclick = (evento)=> {
+    if ((peditar != "true") || (peditar == null)){
     evento.preventDefault();
     fenvio()
     .then(result =>{
@@ -17,12 +29,53 @@ botaocadastrar.onclick = (evento)=> {
         localStorage.setItem("catalogo",JSON.stringify(dados));
         window.location.assign("catalogo.html");
     }
-        else {
+  else {
             alert("Houve erro no envio do arquivo");
         }
     });
+} else{
+    editarenvio(evento);
+    window.location.assign("catalogo.html");
+}
 }
 
+function editar(indice){
+  nome.value = "editar";
+  descricao.value = "editar";
+  foto.files[0] = null;  
+  let dados = JSON.parse(localStorage.getItem("catalogo"));
+  nome.value = dados[indice].nome;
+  descricao.value = dados[indice].descricao;
+  fotoa= dados[indice].foto;
+ 
+}
+
+var fotoa;
+function editarenvio(evento){
+    evento.preventDefault();
+   if ((fotoa != foto.value)&&(foto.value != "")){
+
+   fenvio()
+   .then(result =>{
+                   if(result){
+                     salvaEdicao(nomeArq);
+                      }
+                   });
+  }
+  else
+  {
+       salvaEdicao(fotoa);
+  } 
+}
+
+ 
+function salvaEdicao(pfoto){
+    let dados = JSON.parse(localStorage.getItem("catalogo"));
+    dados[pindice].nome = nome.value;
+    dados[pindice].descricao = descricao.value;
+    dados[pindice].foto = pfoto;
+    localStorage.setItem("catalogo", JSON.stringify(dados));
+}
 
 var nomeArq;
 async function fenvio() {

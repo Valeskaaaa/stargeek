@@ -21,12 +21,12 @@ header{
     display: flex;
     justify-content: space-between;
    align-items: center;
-   padding: 40px;
-   flex-wrap: ;
+   padding: 40px; 
 }
 
 main{
     grid-area: m;
+    min-height: 80vh;
 }
 
 .cards{
