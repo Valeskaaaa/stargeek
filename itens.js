@@ -27,7 +27,7 @@ botaocadastrar.onclick = (evento)=> {
             }
         )
         localStorage.setItem("catalogo",JSON.stringify(dados));
-        window.location.assign("catalogo.html");
+        
     }
   else {
             alert("Houve erro no envio do arquivo");
@@ -35,7 +35,6 @@ botaocadastrar.onclick = (evento)=> {
     });
 } else{
     editarenvio(evento);
-    window.location.assign("catalogo.html");
 }
 }
 
@@ -75,6 +74,7 @@ function salvaEdicao(pfoto){
     dados[pindice].descricao = descricao.value;
     dados[pindice].foto = pfoto;
     localStorage.setItem("catalogo", JSON.stringify(dados));
+    window.location.assign("catalogo.html");
 }
 
 var nomeArq;
