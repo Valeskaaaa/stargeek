@@ -1,5 +1,8 @@
 const cards = document.querySelector(".cards");
 
+var emailLogado;
+femailLogado();
+
 carregarCatalogo();
 function carregarCatalogo(){
     let dados = JSON.parse(localStorage.getItem("catalogo"));
@@ -11,6 +14,7 @@ function carregarCatalogo(){
     }
 
 dados.forEach((elemento, indice) => {
+    if (elemento.email == emailLogado){
     let divcard = document.createElement("div");
     divcard.setAttribute("class", "card");
     divcard.innerHTML = `<div class="info">
@@ -23,9 +27,10 @@ dados.forEach((elemento, indice) => {
 </div>
     
     `
-    cards.appendChild(divcard);
+    cards.appendChild(divcard);}
 });
 }
+
 
 function excluir(indice){
     if (confirm("Tem certeza de que deseja excluir?")) {
@@ -39,4 +44,14 @@ function excluir(indice){
 function editar(indice){
     var url ="itens.html?peditar=true&indice="+ encodeURIComponent(indice);
     window.location.href = url;
+}
+
+function femailLogado(){
+    let dados = sessionStorage.getItem("logado");
+    if(dados == null){
+        window.location.assign("login.html");
+        }
+        else {
+            emailLogado = dados;
+        }
 }

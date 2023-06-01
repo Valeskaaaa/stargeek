@@ -1,7 +1,11 @@
 const nome = document.getElementById("nome");
 const descricao = document.getElementById("descricao");
 const botaocadastrar = document.getElementById("btncadastrar");
-const foto = document.getElementById("foto")
+const foto = document.getElementById("foto");
+
+var emailLogado;
+femailLogado();
+
 
 var url = new URL(window.location.href);
 var peditar = url.searchParams.get("peditar");
@@ -18,15 +22,20 @@ botaocadastrar.onclick = (evento)=> {
     evento.preventDefault();
     fenvio()
     .then(result =>{
-        if(result){let dados = JSON.parse(localStorage.getItem("catalogo")) || [];
+        if(result){
+            let dados = JSON.parse(localStorage.getItem("catalogo")) || [];
         dados.push(
             {
                 nome: nome.value,
                 descricao : descricao.value,
-                foto : nomeArq 
-            }
+                foto : nomeArq,
+                email : emailLogado
+                                                                                                                                                       
+            }                                                                                                                  
         )
         localStorage.setItem("catalogo",JSON.stringify(dados));
+        window.location.assign("catalogo.html");
+ 
         
     }
   else {
@@ -73,6 +82,7 @@ function salvaEdicao(pfoto){
     dados[pindice].nome = nome.value;
     dados[pindice].descricao = descricao.value;
     dados[pindice].foto = pfoto;
+    dados[pindice].email = emailLogado;
     localStorage.setItem("catalogo", JSON.stringify(dados));
     window.location.assign("catalogo.html");
 }
@@ -107,3 +117,12 @@ async function fenvio() {
     }
 }
 
+function femailLogado(){
+    let dados =sessionStorage.getItem("logado");
+    if(dados == null){
+        window.location.assign("login.html");
+        }
+        else {
+            emailLogado = dados;
+        }
+}
